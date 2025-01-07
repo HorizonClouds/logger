@@ -12,7 +12,9 @@ El logger se encuentra en la carpeta `src/exporter-example`.
 Para usar el logger en un nuevo repositorio, sigue estos pasos:
 
 1. Copia el archivo `logger.js` desde la carpeta `src/exporter-example/utils` a tu nuevo repositorio.
-2. Importa el archivo `logger.js` en tu archivo principal de entrada (por ejemplo, `server.js`).
+2. Importa el archivo `logger.js` en tu archivo principal de entrada (por ejemplo, `server.js`). 
+   IMPORTANTE -> ponerlo en la primera linea
+   (ACORDARSE DE INICIALIZAR EL LOG EN EL APP.LISTENING CAMBIAR CONSOLE.LOG POR LOGGER.INFO)
 3. Configura las variables de entorno en el archivo `.env` según sea necesario. Puedes encontrar un ejemplo en el archivo `src/exporter-example/.env.example`. Asegúrate de incluir las siguientes variables:
    ```
    KAFKA_SERVICE_NAME=nombre_del_servicio
@@ -62,7 +64,9 @@ Para que el logger funcione correctamente, es necesario tener configurados Zooke
 
 Estos comandos inician contenedores de Docker para Zookeeper y Kafka. Zookeeper es un servicio centralizado para mantener información de configuración, nombres distribuidos y proporcionar sincronización distribuida. Kafka depende de Zookeeper para coordinar y gestionar el clúster de brokers.
 
-3. Ejecutar el logger centralizado (este proyecto):
+3. Crear el archivo `.env` a partir del `.env.exaple`
+
+4. Ejecutar el logger centralizado (este proyecto):
    ```sh
    npm install
    node src/index.js
